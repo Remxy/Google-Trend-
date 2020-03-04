@@ -1,0 +1,46 @@
+---
+title: "Google Trends Email App"
+output:
+   flexdashboard::flex_dashboard:
+   orientation: columns
+runtime: shiny
+---
+
+```{r global, include=FALSE}
+#Shiny
+
+library(shiny)
+library(flexdashboard)
+library(shinycssloaders)
+
+
+# Google Trends API
+
+library(gtrendsR)
+
+#Gmail API
+library(gmailr)
+
+
+#Core
+library(tidyverse)
+library(lubridate)
+library(tidyquant)
+library(plotly)
+
+#File System
+library(fs)
+
+#Set up defaults
+your_gmail_address               <- "aremif03@gmail.com"
+path_to_gmail_app_credentials    <- "C:/Users/Remi_Adefioye/Documents/google_trends/credentials.json"
+default_search_terms             <- c("aws", "azure", "google cloud")
+
+
+gm_auth_configure(path = path_to_gmail_app_credentials)
+gm_auth(email = your_gmail_address)
+
+```
+
+
+
